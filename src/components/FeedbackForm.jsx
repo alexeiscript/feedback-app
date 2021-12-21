@@ -4,8 +4,19 @@ import Button from './shared/Button'
 
 function FeedbackForm() {
   const [text, setText] = useState('')
+  const [btnDisabled, setBtnDisabled] = useState(true)
+  const [message, setMessage] = useState('')
 
   const handleTextChange = (content) => {
+    if (text === '') {
+      setMessage(null)
+    } else if (text !== '' && text.trim().length < 9) {
+      setMessage('Review must contain at least 10 characters')
+    } else {
+      setMessage(null)
+      setBtnDisabled(false)
+    }
+
     setText(content.target.value)
   }
 
@@ -20,8 +31,11 @@ function FeedbackForm() {
             placeholder='Write a review'
             value={text}
           />
-          <Button type='submit'>Send</Button>
+          <Button type='submit' isDisabled={btnDisabled}>
+            Send
+          </Button>
         </div>
+        {message && <div className='message'>{message}</div>}
       </form>
     </Card>
   )
