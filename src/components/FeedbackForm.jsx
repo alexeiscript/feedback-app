@@ -3,7 +3,7 @@ import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 
-function FeedbackForm() {
+function FeedbackForm({ handleAdd }) {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
@@ -32,7 +32,9 @@ function FeedbackForm() {
         rating,
       }
 
-      console.log(newFeedback)
+      handleAdd(newFeedback)
+
+      setText('')
     }
   }
 
