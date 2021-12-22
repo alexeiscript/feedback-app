@@ -187,14 +187,15 @@ input:focus {
 
 .about-link {
   position: absolute;
+  bottom: 0;
   bottom: 20px;
   right: 20px;
-  color: #fff;
+  color: #ff6a95;
   cursor: pointer;
 }
 
 .about-link a {
-  color: #fff;
+  color: #ff6a95;
 }
 
 .about-link a:hover {
